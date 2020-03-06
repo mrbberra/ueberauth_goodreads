@@ -1,21 +1,21 @@
-defmodule Ueberauth.Strategy.Twitter.OAuth do
+defmodule Ueberauth.Strategy.Goodreads.OAuth do
   @moduledoc """
-  OAuth1 for Twitter.
+  OAuth1 for Goodreads.
 
   Add `consumer_key` and `consumer_secret` to your configuration:
 
-  config :ueberauth, Ueberauth.Strategy.Twitter.OAuth,
-    consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
-    consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET"),
-    redirect_uri: System.get_env("TWITTER_REDIRECT_URI")
+  config :ueberauth, Ueberauth.Strategy.Goodreads.OAuth,
+    consumer_key: System.get_env("GOODREADS_CONSUMER_KEY"),
+    consumer_secret: System.get_env("GOODREADS_CONSUMER_SECRET"),
+    redirect_uri: System.get_env("GOODREADS_REDIRECT_URI")
   """
 
-  alias Ueberauth.Strategy.Twitter.OAuth.Internal
+  alias Ueberauth.Strategy.Goodreads.OAuth.Internal
 
   @defaults [access_token: "/oauth/access_token",
              authorize_url: "/oauth/authorize",
              request_token: "/oauth/request_token",
-             site: "https://api.twitter.com"]
+             site: "https://goodreads.com"]
 
   defmodule ApiError do
     @moduledoc "Raised on OAuth API errors."

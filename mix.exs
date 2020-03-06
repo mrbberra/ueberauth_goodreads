@@ -1,13 +1,13 @@
-defmodule UeberauthTwitter.Mixfile do
+defmodule UeberauthGoodreads.Mixfile do
   use Mix.Project
 
   @version "0.3.0"
-  @url "https://github.com/ueberauth/ueberauth_twitter"
+  @url "https://github.com/ueberauth/ueberauth_goodreads"
 
   def project do
-    [app: :ueberauth_twitter,
+    [app: :ueberauth_goodreads,
      version: @version,
-     name: "Ueberauth Twitter Strategy",
+     name: "Ueberauth Goodreads Strategy",
      package: package(),
      elixir: "~> 1.1",
      build_embedded: Mix.env == :prod,
@@ -25,7 +25,7 @@ defmodule UeberauthTwitter.Mixfile do
 
   defp deps do
     [
-     {:httpoison, "~> 1.0"},
+     {:httpoison, "~> 1.6"},
      {:oauther, "~> 1.1"},
      {:ueberauth, "~> 0.6"},
 
@@ -45,7 +45,7 @@ defmodule UeberauthTwitter.Mixfile do
   end
 
   defp description do
-    "An Uberauth strategy for Twitter authentication."
+    "An Uberauth strategy for Goodreads authentication."
   end
 
   defp package do

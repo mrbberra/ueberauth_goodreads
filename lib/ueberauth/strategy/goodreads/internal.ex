@@ -1,4 +1,4 @@
-defmodule Ueberauth.Strategy.Twitter.OAuth.Internal do
+defmodule Ueberauth.Strategy.Goodreads.OAuth.Internal do
   @moduledoc """
   A layer to handle OAuth signing, etc.
   """
@@ -15,7 +15,7 @@ defmodule Ueberauth.Strategy.Twitter.OAuth.Internal do
       |> OAuther.sign(url, extraparams, creds)
       |> OAuther.header
 
-    HTTPoison.get(url, [header, {"Accept", "application/json"}], params: params)
+    HTTPoison.get(url, [header, {"Accept", "application/json"}], [follow_redirect: true, params: params])
     |> decode_body()
   end
 

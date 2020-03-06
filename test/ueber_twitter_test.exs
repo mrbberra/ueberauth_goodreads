@@ -1,4 +1,4 @@
-defmodule UeberauthTwitterTest do
+defmodule UeberauthGoodreadsTest do
   use ExUnit.Case
-  doctest UeberauthTwitter
+  doctest UeberauthGoodreads
 end
