@@ -11,7 +11,7 @@ defmodule Ueberauth.Strategy.Goodreads.OAuthTest do
   end
 
   test "access_token!/2: raises an appropriate error on auth failure" do
-    assert_raise RuntimeError, ~r/401/i, fn ->
+    assert_raise Ueberauth.Strategy.Goodreads.OAuth.ApiError, ~r"Invalid OAuth Request", fn ->
       OAuth.access_token! {"badtoken", "badsecret"}, "badverifier"
     end
   end
@@ -23,7 +23,7 @@ defmodule Ueberauth.Strategy.Goodreads.OAuthTest do
   end
 
   test "request_token!/2: raises an appropriate error on auth failure" do
-    assert_raise RuntimeError, ~r/401/i, fn ->
+    assert_raise Ueberauth.Strategy.Goodreads.OAuth.ApiError, ~r"Invalid OAuth Request", fn ->
       OAuth.request_token! [], redirect_uri: "some/uri"
     end
   end

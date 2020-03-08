@@ -93,8 +93,9 @@ defmodule Ueberauth.Strategy.Goodreads.OAuth do
     {:ok, {token, token_secret}}
   end
 
-  defp decode_response({:ok, %{status_code: status_code, body: %{"errors" => [error | _]}}}) do
-    {:error, %ApiError{message: error["message"], code: error["code"]}}
+  defp decode_response({:ok, %{status_code: status_code, body: body}}) do
+    error_message = Regex.scan(~r"(.*?)\n.*", body, capture: :all_but_first)
+    {:error, %ApiError{message: error_message, code: status_code}}
   end
 
   defp decode_response({:error, %{reason: reason}}) do
